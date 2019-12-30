@@ -1,0 +1,86 @@
+/========
+HIGH
+---- needed for the program to function for proof-of-concept and further testing:
+=========
+
+✓ System can serve questionnaires to patient
+
+✓ Questions may be asked in multiple formats
+
+☐ System should send notices of application errors
+
+☐ Completed questionnaires should be scored
+
+☐ System should have unit testing
+
+
+
+/========
+HIGH BUT WITH AN ASTERISK
+---- high importance, but would be completed in stages when the project is in a more stable condition and not in one work day, day one
+=========
+
+☐ Documentation should be created for the end user
+
+☐ Documentation should be created on questionnaire creation
+
+
+
+/========
+MEDIUM
+---- important, but requires the framework to function in order to implement
+=========
+
+☐ System should have robust logging system
+
+☐ Patients need to login to an account to answer questionnaires
+
+☐ Patient responses to questions are stored for later review
+
+☐ Scores should be displayed at the end of the questionnaire(s)
+-- lower priority, but tied to above list item
+
+✓ Patients should be presented with a welcome screen prior to the first questionnaire
+
+✓ Patients should only see and respond to one question at a time
+-- implement as part of high-priority list item
+
+✓ Patients should be allowed to go back and modify a response
+
+☐ Patients should be able to decline the questionnaire at any point
+
+☐ Patients should be allowed to skip questions
+
+☐ Multiple questionnaires can be done consecutively
+
+☐ Questionnaire analytics should be stored
+
+☐ Questionnaires should be assigned based on patient demographics
+
+
+
+/========
+REGULATORY
+---- important, but easier to implement in stages when the project is in a more stable condition and not on work day one
+=========
+
+☐ Code should follow Microsoft's C# guidelines
+
+☐ Code should follow proper MVC principles
+
+☐ Code formatting should be separated into a Data, Business, and Presentation layer
+
+☐ User Interface needs to be responsive
+-- arguably low priority but not nearly as low as the other Lows so it goes here
+
+
+
+/========
+LOW PRIORITY
+---- quality of user experience, but not necessary to implement until the project actually works
+=========
+
+☐ Patients should see a progress bar
+
+☐ A loading animation should appear on page transitions
+
