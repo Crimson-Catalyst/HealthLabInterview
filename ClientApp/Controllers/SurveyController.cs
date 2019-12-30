@@ -25,24 +25,24 @@ namespace ClientApp.Controllers
             return View();
         }
 
+        //begin button
         [HttpPost]
         public IActionResult Index(string qIndex)
         {
             return RedirectToAction("Question", new { qIndex });
         }
-
-        //question testing
-        [HttpGet]
-        public IActionResult ShortAnswer()
-        {
-            return View();
-        }
-
+        
+        //base question
         [HttpGet]
         public async Task<IActionResult> Question(string qIndex)
         {
-            SurveyQuestion question = await _surveyAccess.GetQuestionForIndex(qIndex);
+            //keep the index within real parameters
+            if(int.Parse(qIndex) < 1) {
+                return RedirectToAction("Question", new { qIndex = "1" });
+            }
 
+            //retrieve question model
+            SurveyQuestion question = await _surveyAccess.GetQuestionForIndex(qIndex);            
             SurveyQuestionViewModel toRet = new SurveyQuestionViewModel()
             {
                 QIndex = question.QIndex,
@@ -51,24 +51,50 @@ namespace ClientApp.Controllers
                 Answers = question.Answers,
             };
 
+            //if this question has the "complete" type, swap to a new action
+            //temporary measures to end the survey without exceeding the database; would be changed in later dev
+            if (toRet.QType == "Complete")
+            {
+                return RedirectToAction("EndSurvey");
+            }
+
             //parse the answers string into discrete questions
             toRet.AnswersArray = new List<string>();
-            if (toRet.Answers != null)
-            {
+            if (toRet.Answers != null) {
                 string[] splitter = question.Answers.Split(',');
 
-                foreach (string phrase in splitter)
-                {
+                foreach (string phrase in splitter) {
                     toRet.AnswersArray.Add(phrase);
                 }
             }
-            else
-            {
+            else {
+                toRet.Answers = "enter your answer...";
                 toRet.AnswersArray.Add("enter your answer...");
             }
-
+            
             //return the given question
-            return View(toRet);
+            return View(toRet.QType, toRet);
         }
+
+        [HttpPost]
+        public IActionResult Question(string answer, string qIndex)
+        {
+            //as dev continues, this would record the answer
+            return RedirectToAction("Question", new { qIndex });
+        }
+
+        [HttpGet]
+        public IActionResult EndSurvey()
+        {
+            return View("Complete");
+        }
+
+        //allow patient to back up
+        [HttpPost]
+        public IActionResult EndSurvey(string qIndex)
+        {
+            return RedirectToAction("Question", new { qIndex });
+        }
+
     }
 }

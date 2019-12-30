@@ -24,6 +24,25 @@ a {
   border-color: #1861ac;
 }
 
+/* Personal styles
+-------------------------------------------------- */
+
+.btn-left{
+	margin-top: 30px;
+	float:left;
+}
+
+.btn-right{
+	margin-top: 30px;
+	margin-right: 50%;
+	float:right;
+}
+
+.skinny-input{
+	width: auto;
+}
+
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {

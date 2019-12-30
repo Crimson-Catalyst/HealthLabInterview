@@ -7,8 +7,8 @@
 <div>
 <p>@Model.QuestionText</p>
 <form method="post">
-    <input type="text" class="form-control skinny-input" name="answer" placeholder="@Model.Answers" aria-label="Answer" aria-describedby="submit-button">
-    <button class="btn btn-right btn-outline-primary" type="submit" value="@(int.Parse(Model.QIndex) + 1)" name="qIndex" id="submit-button">Next</button>
+    <textarea class="form-control" name="answer" placeholder="@Model.Answers" rows="3"></textarea>
+    <button class="btn-right btn btn-outline-primary" type="submit" value="@(int.Parse(Model.QIndex) + 1)" name="qIndex" id="submit-button">Next</button>
 </form>
 
 <form method="post">
