@@ -1,4 +1,4 @@
-﻿using API.Models;
+﻿/*using API.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 
 namespace API.Configuration
 {
-    public class DatabaseConfiguration : DbContext
+    public class og : DbContext
     {
         public DbSet<WeatherForecast> Forecasts { get; set; }
-        public DbSet<SurveyQuestion> Questionnaire { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
-            => options.UseSqlite("Data Source=apiMedical.db");
+            => options.UseSqlite("Data Source=api.db");
     }
-}
+}*/

@@ -11,7 +11,7 @@
   "profiles": {
     "API": {
       "commandName": "Project",
-      "launchUrl": "weatherforecast",
+      "launchUrl": "surveyquestion",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

@@ -13,6 +13,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
+// it's important to read all requirements thoroughly before beginning a project! i found Issue #1
+
 namespace IntervieweeProject
 {
     public class Startup
@@ -36,6 +38,7 @@ namespace IntervieweeProject
             });
 
             services.AddTransient<IWeatherAccess, WeatherAccess>();
+            services.AddTransient<ISurveyAccess, SurveyAccess>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

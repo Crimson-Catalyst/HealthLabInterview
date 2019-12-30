@@ -20,19 +20,32 @@ namespace ClientApp.Controllers
         }
 
         [HttpGet]
+        //returns view upon accessing index page
         public IActionResult Index()
         {
             return View();
         }
 
         [HttpPost]
+        //posts to server when index calls post
         public IActionResult Index(string zipcode)
         {
             // If we were saving anything to the database this is where we would call the manager to do so.
             return RedirectToAction("WeatherReport", new { zipcode });
         }
 
+        /*[HttpGet]
+        public IActionResult Testy()
+        {
+            TestyViewModel toRet = new TestyViewModel()
+            {
+                Dingdong = "whats up zorbosd",
+            };
+            return View(toRet);
+        }*/
+
         [HttpGet]
+        //returns view upon accessing Weather Report page; gets params from ? url
         public async Task<IActionResult> WeatherReport(string zipcode)
         {
             WeatherForecast forecast = await _forecastAccess.GetForecastForZipcode(zipcode);
